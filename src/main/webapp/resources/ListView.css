@@ -1,0 +1,116 @@
+  body {
+  padding-top:70px;
+  background-color: #ECECEC;
+  color: #444444;
+  padding: 0;
+  margin: 0;
+  perspective: 1px;
+  transform-style: preserve-3d;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: 'Roboto';
+}
+
+.brand-logo {
+  float: left;
+  cursor: default;
+}
+.parallax {
+  height: 65vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+.parallax.p1 {
+  background: url('img/finance.jpg') no-repeat fixed 70% 0;
+  background-size: cover;
+  color: #fff;
+}
+.parallax.p2 {
+   background: url('img/KakaoTalk_20161117_185543169.jpg') no-repeat fixed 50% 0; 
+  background-size: cover;
+  color: #fff;
+}
+.parallax.p3 {
+   background: url('img/medical.jpg') no-repeat fixed 70% 0; 
+  background-size: cover;
+  color: #fff;
+}
+.parallax.p4 {
+  background: url('img/stadium.jpg') no-repeat fixed 70% 0;
+  background-size: cover;
+  color: #fff;
+}
+
+ .parallax-text {
+  width: 24em;
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  border: .5em solid #fff;
+  margin-left: -10%;
+  padding: 2em 0;
+  text-align: center;
+  z-index: 999;
+} 
+.parallax > div.blur-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+} 
+hgroup{
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  color: #fff;
+  border: 5px solid #fff;
+  padding: .5em 3em;
+  background-color: rgba(0,0,0,.2);
+  z-index: 2;
+}
+.row {
+  width: 80%;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  min-height: 150px;
+}
+.section-3{
+  background-color: #ee6e73;
+  display: block;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #ececec;
+}
+	
+footer {
+  width: 100%;
+  padding-top: 20px;
+  display: block;
+  background-color: #ee6e73;
+}
+.footer-copyright {
+  font-weight: 300;
+  overflow: hidden;
+  height: 50px;
+  line-height: 50px;
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(51, 51, 51, 0.08);
+}
+.container {
+  width: 80%;
+  padding: 0 1.5rem;
+  margin: 0 auto;
+  max-width: 1280px;
+}
+footer p {
+  border-left: 3px solid #ffcdd2;
+  padding-left: 15px;
+  text-indent: 20px;
+  color: #ececec;
+}

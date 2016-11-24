@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.datastr.mappers.staffMapper">
+  
+   <insert id="regist">
+	insert into staff_tbl(name,birth,tel,country,language,
+	position,salary,contract_end_time,career,gender) 
+values (#{name},#{birth},#{tel},#{country},#{language},#{position},
+#{salary},#{contract_end_time},#{career},#{gender})
+	</insert>
+  
+ <select id="listAll" resultType="StaffVO">
+	<![CDATA[
+	select * from Staff_tbl order by position
+	]]>
+	</select>
+
+ <select id="getone" resultType="StaffVO">
+	select * from Staff_tbl where pno=#{idno}
+	</select>
+
+
+ <select id="listAllOrderBy"  parameterType="String" resultType="StaffVO">
+
+	select * from Staff_tbl order by  ${value}
+
+	</select>
+  
+  <delete id="release">
+	delete from staff_tbl where pno=#{pno}
+	</delete>
+  
+  
+    </mapper>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.datastr.mappers.marketMapper">
+  
+  <insert id="regist">
+	insert into market_tbl(name,birth,curclub,side_footer,
+	position,goal,grade,assist,gender,country,language) 
+values (#{name},#{birth},#{curclub},#{side_footer},
+#{position},#{goal},#{grade},#{assist},#{gender},#{country},#{language})
+	</insert>
+	
+	<select id="listAll" resultType="marketVO">
+	select * from market_tbl order by name	
+	</select>
+  
+  <select id="listAllOrderBy"  parameterType="String" resultType="marketVO">
+	select * from market_tbl order by ${value}
+	</select>
+	
+	<select id="getone" resultType="marketVO">
+	select * from market_tbl where idno = #{idno}
+	</select>
+	
+	<delete id="delete">
+	delete from market_tbl where idno=#{idno}
+	</delete>
+  
+  </mapper>
