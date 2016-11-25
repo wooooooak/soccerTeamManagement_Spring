@@ -36,6 +36,11 @@ values (#{name},#{birth},#{prevclub},#{curclub},#{transfer_fee},#{side_footer},
 	<delete id="release">
 	delete from fplayer_tbl where idno=#{idno}
 	</delete>
-	
+
+	<update id="updatePlayer">
+	update fplayer_tbl set salary=#{salary}, goal=#{goal},assist=#{assist},
+	backno=#{backno},contract_end_time=#{contract_end_time},grade=#{grade}
+	where idno = #{idno}
+	</update>	
   
 </mapper>

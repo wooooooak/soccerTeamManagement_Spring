@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.datastr.VO.FplayerVO;
+import com.datastr.VO.UpdatePlayerVO;
 @Repository
 public class FplayerDAOImpl implements FplayerDAO {
 
@@ -53,6 +54,11 @@ public class FplayerDAOImpl implements FplayerDAO {
 	public FplayerVO getone(Integer idno) throws Exception {
 		System.out.println("fp getone : " + idno );
 		return session.selectOne(namespace+".getone", idno);
+	}
+
+	@Override
+	public void updatePlayer(UpdatePlayerVO updatePlayerVO) throws Exception {
+		session.update(namespace+".updatePlayer", updatePlayerVO);
 	}
 
 }

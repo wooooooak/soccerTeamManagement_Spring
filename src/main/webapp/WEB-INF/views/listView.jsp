@@ -148,6 +148,13 @@ hgroup {
 									<td><a href="#" class="fprelease" data-toggle="modal"
 										data-target="#example-modal" id="example-modal--label">${fplayerVO.name }</a>
 										<input type="hidden" name="idno" value="${fplayerVO.idno}" />
+										<input type="hidden" name="salary" value="${fplayerVO.salary}" />
+										<input type="hidden" name="goal" value="${fplayerVO.goal}" />
+										<input type="hidden" name="assist" value="${fplayerVO.assist}" />
+										<input type="hidden" name="position" value="${fplayerVO.position}" />
+										<input type="hidden" name="grade" value="${fplayerVO.grade}" />
+										<input type="hidden" name="backno" value="${fplayerVO.backno}" />
+										<input type="hidden" name="contract_end_time" value="${fplayerVO.contract_end_time}" />
 									</td>
 
 									<td>${fplayerVO.backno }</td>

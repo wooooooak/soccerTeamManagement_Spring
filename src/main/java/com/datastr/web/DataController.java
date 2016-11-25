@@ -5,11 +5,9 @@ package com.datastr.web;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
@@ -22,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.datastr.VO.FplayerVO;
 import com.datastr.VO.MarketVO;
 import com.datastr.VO.StaffVO;
+import com.datastr.VO.UpdatePlayerVO;
 import com.datastr.service.FinanceService;
 import com.datastr.service.FplayerService;
 import com.datastr.service.MarketService;
@@ -188,6 +187,32 @@ public class DataController {
 		
 		return entity;
 	}
+	@RequestMapping(value = "/updatePlayer",method = RequestMethod.POST)
+	public @ResponseBody ResponseEntity<String> updatePlayer(UpdatePlayerVO UpdatePlayerVO) throws Exception {
+		System.out.println("updatePlayer");
+		logger.info(UpdatePlayerVO.toString());
+		logger.info("바뀔 주급 : "+UpdatePlayerVO.getSalary());
+		
+		int idno = UpdatePlayerVO.getIdno();
+		FplayerVO fplayerVO2;
+		ResponseEntity<String> entity = null;
+		try {
+			fplayerVO2 = fpservice.getone(idno);
+/*			logger.info("기존 주급 : "+fplayerVO2.getSalary());*/
+			
+			financeService.update_player_Salary(UpdatePlayerVO.getSalary() - fplayerVO2.getSalary());
+			fpservice.updatePlayer(UpdatePlayerVO);
+			entity =new ResponseEntity<String>("success",HttpStatus.OK);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			entity =new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
+		}
+		
+		return entity;
+	}
+	
+	
 	@RequestMapping(value = "/marketDelete/{idno}",method = RequestMethod.DELETE)
 	public ResponseEntity<String> marketDelete(@PathVariable("idno") Integer idno) throws Exception {
 		System.out.println("marketDlete");

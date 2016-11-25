@@ -24,7 +24,7 @@
   		 $('.modal-body:first').html('');	
   		  $('.modal-body').prepend(+
   				  "<div class='container2'>"+
-	  				  "</br><p> 이 선수를 정말로 명단에 등록 시키시겠습니까?</p></br>"+
+	  				  "</br><p class='text-center'> 이 선수를 정말로 명단에 등록 시키시겠습니까?</p></br>"+
 	  				  
 	  				  "<input type='hidden' id='idno' name='idno' value='"+idno+"' placeholder='"+idno+"'>"+
 	  				  

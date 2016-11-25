@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.datastr.DAO.FplayerDAO;
 import com.datastr.VO.FplayerVO;
+import com.datastr.VO.UpdatePlayerVO;
 @Service
 public class FplayerServiceImpl implements FplayerService {
 
@@ -51,6 +52,12 @@ public class FplayerServiceImpl implements FplayerService {
 	@Override
 	public FplayerVO getone(Integer idno) throws Exception {
 		return dao.getone(idno);
+	}
+
+
+	@Override
+	public void updatePlayer(UpdatePlayerVO updatePlayerVO) throws Exception {
+		dao.updatePlayer(updatePlayerVO);
 	}
 
 }

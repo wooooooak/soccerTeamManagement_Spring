@@ -47,13 +47,67 @@
      		  var self = this;
      		  console.log(".fprelease click");
      		 var idno = $(this).next().val();
-     		 console.log(idno);
+     		 var salary = $(this).next().next().val();
+     		 var goal = $(this).next().next().next().val();
+     		 var assist = $(this).next().next().next().next().val();
+     		 var position = $(this).next().next().next().next().next().val();
+     		 var grade = $(this).next().next().next().next().next().next().val();
+     		 var backno= $(this).next().next().next().next().next().next().next().val();
+     		 var contract_end_time= $(this).next().next().next().next().next().next().next().next().val();
+     		 console.log("선수의 idno : "+idno+"선수의 gola : " + goal);
      		 $('.modal-body:first').html('');	
-     		  $('.modal-body').prepend("</br><p> 이 선수를 정말로 명단에서 제외 시키시겠습니까?</p></br>"+
-     				  "<input type='hidden' name='idno' value='"+idno+"' placeholder='"+idno+"'>"
+     		  $('.modal-body').prepend("</br><p class='text-center'> 옵션을 선택하세요.</p></br>"+
+     				  "<input type='hidden' name='idno' id='idno' value='"+idno+"' placeholder='"+idno+"'>"
      				  +
+     				 '<form id="registrationForm" class="form-horizontal fv-form fv-form-bootstrap"'+
+						'novalidate="novalidate" method="post" action="#">'+
+						"<input type='hidden' name='idno' id='idno' value='"+idno+"' placeholder='"+idno+"'>"+
+			  				"<div class='form-group'>"+
+			  				  '<label class="col-xs-3 control-label">salary</label>'+
+			  				  "<div class='col-xs-3'><input id='sal'class='form-control' type='number' value='"+salary+"' name='salary' placeholder='salary'/>"+
+			  				  "</div>"+
+			  				"</div>"+
+		  			
+			  				'<div class="form-group has-feedback"> '+
+							'<label class="col-xs-3  control-label">goal</label>'+
+							'<div class="col-xs-3">'+
+								'<input type="number" class="form-control" id="goal"value="'+goal+'" name="goal" placeholder="경기당 골"/>'+
+							'</div>'+
+							'<label class="col-xs-3  control-label">assist</label>'+
+							'<div class="col-xs-3">'+
+								'<input type="number" class="form-control"id="assist" value="'+assist+'" name="assist" placeholder="평균 어시스트"/>'+
+							'</div>'+
+							'<label class="col-xs-3 control-label">grade</label>'+
+							'<div class="col-xs-3">'+
+								'<select class="form-control" name="grade" id="grade"value="'+grade+'"placeholder="평균 평점">'+
+								'<option>10</option>'+
+								'<option>9</option>'+
+								'<option>8</option>'+
+								'<option>7</option>'+
+								'<option>6</option>'+
+								'<option>5</option>'+
+								'<option>4</option>'+
+								'<option>3</option>'+
+								'<option>2</option>'+
+								'<option>1</option>'+
+								'</select>'+
+							'</div>'+
+							'<label class="col-xs-3 control-label"for="backno">등번호</label>'+
+							'<div class="col-xs-3">'+
+								'<input type="number" class="form-control" id="backno" value="'+backno+'"name="backno" placeholder="등번호"aria-describedby="inputError2Status"/>'+
+							'</div>'+
+						'</div>'+
+		  				
+		  				"<div class='form-group'>"+
+							"<label class='col-xs-3 control-label'>contract_end_time</label>"+
+							"<div class='col-xs-5'>"
+								+"<input id='day' type='date' class='form-control' value='"+contract_end_time+"' name='contract_end_time' />"
+							+"</div>"+
+						"</div></br>"+
+     				  
      				  "<div class='btn btn-danger releaseok1'>방출</div>"+
      				 "<div class='btn btn-primary gomarket1'>이적시장에 등록</div>"+
+     				 "<div class='btn btn-primary update1'>수정</div>"+
      				  "<div class='btn btn-warning releaseno1'>취소</div>");
      		  
      		  /*예방출 버튼을 눌렀을때 선수목록에서 제외됨*/
@@ -72,10 +126,42 @@
 					success : function(result) {
 
 						if (result == 'success') {
-							$(self).closest('tr').html("");
+							$(self).closest('tr').html(""); // 테이블에서 사라짐
 						}
 					}
 				});
+     			  return false;
+     		  });
+
+     		  $('.update1').on('click',function(){
+     			 var data=$('#registrationForm').serialize();
+      			/*  var idno = $('#idno').val();
+      			  var day = $('#day').val();
+      			  var salary = $('#sal').val();
+      			  var goal=$("#goal").val();
+      			  var assist=$("#assist").val();
+      			  var grade=$("#grade").val();
+      			  var backno=$("#backno").val();*/
+     			  alert(data);
+     			  $('#example-modal').modal('hide');
+     			  
+     			  /*예 버튼을 눌렀을때 서버와 통신 이후 모달창 닫기*/
+     			  $.ajax({
+     				  type : 'POST',
+     				  url : '/web/data/updatePlayer',
+     				  data: data,
+     				  headers : {
+     					  "Content-Type" : "application/x-www-form-urlencoded;charset=UTF-8"
+     				  },
+     				  success : function(result) {
+     					  
+     					  if (result == 'success') {
+     						  alert("수정 완료");
+     						 $('#fptable').load('/web/listAllOrderBy/'+name);
+     						  
+     					  }
+     				  }
+     			  });
      			  return false;
      		  });
      		  
