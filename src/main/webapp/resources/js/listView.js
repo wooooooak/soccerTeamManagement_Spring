@@ -135,13 +135,6 @@
 
      		  $('.update1').on('click',function(){
      			 var data=$('#registrationForm').serialize();
-      			/*  var idno = $('#idno').val();
-      			  var day = $('#day').val();
-      			  var salary = $('#sal').val();
-      			  var goal=$("#goal").val();
-      			  var assist=$("#assist").val();
-      			  var grade=$("#grade").val();
-      			  var backno=$("#backno").val();*/
      			  alert(data);
      			  $('#example-modal').modal('hide');
      			  
@@ -157,7 +150,7 @@
      					  
      					  if (result == 'success') {
      						  alert("수정 완료");
-     						 $('#fptable').load('/web/listAllOrderBy/'+name);
+     						 $('#fptable').load('/web/listAllOrderBy/name');
      						  
      					  }
      				  }
