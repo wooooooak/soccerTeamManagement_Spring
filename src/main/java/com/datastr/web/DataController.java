@@ -56,21 +56,6 @@ public class DataController {
 		
 		return entity;
 	}
-/*
- * 			HOMECONTROLLER에서 처리
- * 	@RequestMapping(value = "/listAllOrderBy/{order}", method = RequestMethod.POST)
-	public  ResponseEntity<List<FplayerVO>> listAllOrderBy(@PathVariable("order") String order) throws Exception {
-		logger.info("listAllOrder do");
-		ResponseEntity<List<FplayerVO>> entity = null;
-		try {
-			entity =new ResponseEntity<List<FplayerVO>>(fpservice.listAllOrderBy(order),HttpStatus.OK);
-		} catch (Exception e) {
-			e.printStackTrace();
-			entity =new ResponseEntity<List<FplayerVO>>(HttpStatus.BAD_REQUEST);
-		}
-		
-		return entity;
-	}*/
 	
 	 /*--------------------------------------------------등록 메소드------------------------------------------------*/
 	@RequestMapping(value = "/fpregister", method = RequestMethod.POST,produces = "application/text; charset=utf8")
@@ -187,6 +172,9 @@ public class DataController {
 		
 		return entity;
 	}
+	
+	
+	/*선수 데이터 수정*/
 	@RequestMapping(value = "/updatePlayer",method = RequestMethod.POST)
 	public @ResponseBody ResponseEntity<String> updatePlayer(UpdatePlayerVO UpdatePlayerVO) throws Exception {
 		System.out.println("updatePlayer");
@@ -198,7 +186,7 @@ public class DataController {
 		ResponseEntity<String> entity = null;
 		try {
 			fplayerVO2 = fpservice.getone(idno);
-/*			logger.info("기존 주급 : "+fplayerVO2.getSalary());*/
+			logger.info("기존 주급 : "+fplayerVO2.getSalary());
 			
 			financeService.update_player_Salary(UpdatePlayerVO.getSalary() - fplayerVO2.getSalary());
 			fpservice.updatePlayer(UpdatePlayerVO);
@@ -230,24 +218,6 @@ public class DataController {
 		return entity;
 	}
 	
-	
-/*	@RequestMapping(value = "/fpregister", method = RequestMethod.POST,produces = "application/text; charset=utf8")
-	public @ResponseBody ResponseEntity<String> register(FplayerVO fplayerVO) throws Exception {
-		logger.info("fpregister do");
-		logger.info(fplayerVO.getPosition());
-		logger.info(fplayerVO.getSide_footer());
-		logger.info(fplayerVO.getContract_end_time().toString());
-		ResponseEntity<String> entity = null;
-		try {
-			service.regist(fplayerVO);
-			entity =new ResponseEntity<String>("success",HttpStatus.OK);
-		} catch (Exception e) {
-			e.printStackTrace();
-			entity =new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
-		}
-		
-		return entity;
-	}*/
 
 	@RequestMapping(value = "/staffrelease/{pno}", method ={RequestMethod.DELETE},produces = "application/text; charset=utf8")
 	public ResponseEntity<String> staffrelease(@PathVariable("pno") Integer pno) throws Exception {
