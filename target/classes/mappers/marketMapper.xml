@@ -5,6 +5,9 @@
   
   <mapper namespace="com.datastr.mappers.marketMapper">
   
+  
+  
+  <!-- 이적시장에 등록 버튼을 눌렀을떄 실행되는 db쿼리문 -->
   <insert id="regist">
 	insert into market_tbl(name,birth,curclub,side_footer,
 	position,goal,grade,assist,gender,country,language) 

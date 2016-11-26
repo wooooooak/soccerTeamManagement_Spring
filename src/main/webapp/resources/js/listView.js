@@ -110,9 +110,16 @@
      				 "<div class='btn btn-primary update1'>수정</div>"+
      				  "<div class='btn btn-warning releaseno1'>취소</div>");
      		  
-     		  /*예방출 버튼을 눌렀을때 선수목록에서 제외됨*/
+     		  
+     		  
+     		  /*여기서 부터------------------------------------------------------------------ */
+     		  
+     		  /*  방출 버튼을 눌렀을때 수행되는 자바스크립트 코드 
+     		   * 선수목록에서 제외됨
+     		   * 서버의 url : '/web/data/fprelease/' + idno, 부분이 호출됨
+     		   * */
      		  $('.releaseok1').on('click',function(){
-     			  var idno = $(this).prev().val();
+     			  var idno = $'/web/data/fprelease/'(this).prev().val();
      			  console.log(idno);
      			  $('#example-modal').modal('hide');
      			  
@@ -132,6 +139,8 @@
 				});
      			  return false;
      		  });
+     		  
+     		  /* 여기까지------------------------------------------------------------------ */
 
      		  $('.update1').on('click',function(){
      			 var data=$('#registrationForm').serialize();
@@ -161,7 +170,7 @@
      		  
      		  /*이적시장등록을 눌렀을때 방출은 되지않지만 이적시장에 올라감*/
      		  $('.gomarket1').on('click',function(){
-     			 var idno = $(this).prev().prev().val(); // .gomarket의 이전이전 요소 의 값 = hidden 속성의 idno
+     			 var idno = $(this).prev().val(); // .gomarket의 이전이전 요소 의 값 = hidden 속성의 idno
     			  alert(idno);
     			  $('#example-modal').modal('hide');
     			  	$.ajax({
@@ -236,6 +245,10 @@
      * 테이블 정렬
      * $('.order').on('click',function(){
      * 이렇게만 했을경우 클릭의 횟수가 2의 제곱만큼 계속 늘어나서 과부하가일어났음.
+     * 
+     * .off()를 추가해서 해결
+     * 
+     * 
      * */
     $('.order').off('click').on('click',function(){
     	var order=$(this).next().val();
@@ -245,6 +258,9 @@
     	return false;
     });
  
+    
+    /*스텝 테이블 정렬*/
+    
     $('.order2').off('click').on('click',function(){
     	var order=$(this).next().val();
     	console.log("staffList order by : " + order);	

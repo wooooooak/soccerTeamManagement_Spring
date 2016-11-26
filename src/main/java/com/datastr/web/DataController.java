@@ -115,7 +115,10 @@ public class DataController {
 		return entity;
 	}
 	
-	//wishList에 등록
+/*	wishList에 등록
+	이적시장에 등록 버튼을 눌렀을떄 호출되는 서버 코드
+	재정변화는 없음*/
+	
 	@RequestMapping(value = "/marketRegist/{idno}",method = RequestMethod.GET)
 	public ResponseEntity<String> marketRegistGET(@PathVariable("idno") Integer idno) throws Exception {
 		System.out.println("marketRegistGET");
@@ -241,6 +244,10 @@ public class DataController {
 	}
 	
 	
+	
+/*	선수 방출 버튼을 눌렀을때 호출되는 서버 코드
+	재정의 변화도 같이 일어남*/
+	
 	@RequestMapping(value = "/fprelease/{idno}", method ={RequestMethod.DELETE},produces = "application/text; charset=utf8")
 	public ResponseEntity<String> fprelease(@PathVariable("idno") Integer idno) throws Exception {
 		logger.info("fprelease do");
@@ -252,7 +259,7 @@ public class DataController {
 			FplayerVO fplayerVO=fpservice.getone(idno);
 			transfer_fee -= fplayerVO.getTransfer_fee();
 			salary -= fplayerVO.getSalary();
-			financeService.update_Tr_fee(transfer_fee);
+			/*financeService.update_Tr_fee(transfer_fee);    선수 방출시 이적료는 불변?*/
 			financeService.update_player_Salary(salary);
 			fpservice.release(idno);
 			entity =new ResponseEntity<String>("success",HttpStatus.OK);

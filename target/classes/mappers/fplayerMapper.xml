@@ -25,6 +25,9 @@ values (#{name},#{birth},#{prevclub},#{curclub},#{transfer_fee},#{side_footer},
 	]]>
 	</select>
 
+
+
+	<!-- 선수 정렬시 db 쿼리문 -->
 	<select id="listAllOrderBy"  parameterType="String" resultType="FplayerVO">
 	select * from fplayer_tbl order by ${value}
 	</select>
@@ -33,6 +36,9 @@ values (#{name},#{birth},#{prevclub},#{curclub},#{transfer_fee},#{side_footer},
 	select * from fplayer_tbl where idno=#{idno}
 	</select> 
 	
+	
+	
+	<!-- 선수 방출시 db 쿼리문 -->
 	<delete id="release">
 	delete from fplayer_tbl where idno=#{idno}
 	</delete>

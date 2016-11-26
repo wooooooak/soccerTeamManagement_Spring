@@ -75,7 +75,9 @@ public class HomeController {
 		}
 	}
 
-	
+		/*선수테이블 정렬시 수행되는 서버 코드 
+		 * db에서 받아온 값들을 model에 넣어서 jsp에 뿌려줌
+		 * */
 	@RequestMapping(value = "/listAllOrderBy/{order}", method = RequestMethod.GET, produces = "application/text; charset=utf8")
 	public String listAllOrderBy(@PathVariable("order") String order, Model model)throws Exception {
 		logger.info("listAllOrderBy DO");
