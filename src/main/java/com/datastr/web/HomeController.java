@@ -49,6 +49,8 @@ public class HomeController {
 		return "home";
 	}
 	
+	
+	/*web/listView 라고 url이 입력되면 맨처음 실행되는 메서드*/
 	@RequestMapping(value = "/listView", method = RequestMethod.GET)
 	public String listView(Locale locale, Model model) {
 		

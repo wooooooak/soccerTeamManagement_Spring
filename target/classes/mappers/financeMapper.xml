@@ -26,6 +26,7 @@
    ]]>
   </update>
 	
+	
 	<select id="getList" resultType="FinanceVO">
 	select * from finance_tbl
 	</select>
