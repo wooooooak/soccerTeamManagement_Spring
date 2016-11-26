@@ -10,11 +10,10 @@
 								<div class="modal-content">
 									<header class="modal-header">
 										<button type="button" class="close" data-dismiss="modal">
-											<span aria-hidden="true">×</span> <span class="sr-only">Close
+											<span aria-hidden="true">×</span> <span class="sr-only ">Close
 												Modal</span>
 										</button>
-										<h4 class="modal-title" id="mySmallModalLabel">Header
-											goes here.</h4>
+										<h4 class="modal-title text-success text-center" id="mySmallModalLabel">Football Club Data</h4>
 									</header>
 									<div class="modal-body">
 										<!--  <p> 선수를 정말 명단에서 제외 시키시겠습니까?</p>

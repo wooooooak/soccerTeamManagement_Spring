@@ -242,7 +242,7 @@ hgroup {
 									<td>${StaffVO.language }</td>
 									<td>${StaffVO.gender }</td>
 									<td>${StaffVO.career }</td>
-									<td><fmt:formatDate var="endtime"
+									<td class='staffDay'><fmt:formatDate var="endtime"
 											value="${StaffVO.contract_end_time}" pattern="yyyy-MM-dd" />${endtime}</td>
 								</tr>
 

@@ -46,6 +46,7 @@
      	  $('.fprelease').on('click',function(){
      		  var self = this;
      		  console.log(".fprelease click");
+     		  var name = $(this).text();
      		 var idno = $(this).next().val();
      		 var salary = $(this).next().next().val();
      		 var goal = $(this).next().next().next().val();
@@ -53,10 +54,9 @@
      		 var position = $(this).next().next().next().next().next().val();
      		 var grade = $(this).next().next().next().next().next().next().val();
      		 var backno= $(this).next().next().next().next().next().next().next().val();
-     		 var contract_end_time= $(this).next().next().next().next().next().next().next().next().val();
      		 console.log("선수의 idno : "+idno+"선수의 gola : " + goal);
      		 $('.modal-body:first').html('');	
-     		  $('.modal-body').prepend("</br><p class='text-center'> 옵션을 선택하세요.</p></br>"+
+     		  $('.modal-body').prepend("</br><p class='text-center lead'> <u>" +name + "</u> 선수의 정보를 수정하려면 </br>데이터를 입력하세요.</p></br>"+
      				  "<input type='hidden' name='idno' id='idno' value='"+idno+"' placeholder='"+idno+"'>"
      				  +
      				 '<form id="registrationForm" class="form-horizontal fv-form fv-form-bootstrap"'+
@@ -99,17 +99,35 @@
 						'</div>'+
 		  				
 		  				"<div class='form-group'>"+
-							"<label class='col-xs-3 control-label'>contract_end_time</label>"+
+							"<label class='col-xs-3 control-label'>계약 기간</label>"+
 							"<div class='col-xs-5'>"
-								+"<input id='day' type='date' class='form-control' value='"+contract_end_time+"' name='contract_end_time' />"
+								+"<input id='day' type='date' class='form-control' name='contract_end_time' />"
 							+"</div>"+
 						"</div></br>"+
+     				  "</form>"+
      				  
-     				  "<div class='btn btn-danger releaseok1'>방출</div>"+
+     					'<div class="btn-group btn-group-justified" role="group">'+
+						  '<div class="btn-group" role="group">'+
+						    '<button type="button" class="btn btn-danger releaseok1">방출</button>'+
+						  '</div>'+
+						  '<div class="btn-group" role="group">'+
+						    '<button type="button" class="btn btn-success gomarket1">이적시장에 등록</button>'+
+						  '</div>'+
+						  '<div class="btn-group" role="group">'+
+						    '<button type="button" class="btn btn-info update1">수정</button>'+
+						  '</div>'+
+						  '<div class="btn-group" role="group">'+
+						  '<button type="button" class="btn btn-warning releaseno1">취소</button>'+
+						  '</div>'+
+						'</div>');
+     				  
+     				  
+     				  
+     			/*	  "<div class='btn btn-danger releaseok1'>방출</div>"+
      				 "<div class='btn btn-primary gomarket1'>이적시장에 등록</div>"+
-     				 "<div class='btn btn-primary update1'>수정</div>"+
+     				 "<div class='btn btn-info update1'>수정</div>"+
      				  "<div class='btn btn-warning releaseno1'>취소</div>");
-     		  
+     		  */
      		  
      		  
      		  /*여기서 부터------------------------------------------------------------------ */
@@ -119,8 +137,8 @@
      		   * 서버의 url : '/web/data/fprelease/' + idno, 부분이 호출됨
      		   * */
      		  $('.releaseok1').on('click',function(){
-     			  var idno = $'/web/data/fprelease/'(this).prev().val();
-     			  console.log(idno);
+     			  var idno = $('#idno').val(); // 이부분 수정해야됨
+     			  console.log("선수 방출 idno : " + idno);
      			  $('#example-modal').modal('hide');
      			  
      			  /*예 버튼을 눌렀을때 서버와 통신 이후 모달창 닫기*/
@@ -168,10 +186,12 @@
      		  });
      		  
      		  
+     		  /*이적시장 등록을 눌렀을때 코드   여기부터 ---------------------------*/
+     		  
      		  /*이적시장등록을 눌렀을때 방출은 되지않지만 이적시장에 올라감*/
      		  $('.gomarket1').on('click',function(){
-     			 var idno = $(this).prev().val(); // .gomarket의 이전이전 요소 의 값 = hidden 속성의 idno
-    			  alert(idno);
+     			 var idno = $('#idno').val();
+    			  alert("이적시장에 등록한 선수 idno : " +idno);
     			  $('#example-modal').modal('hide');
     			  	$.ajax({
     			  		type : 'GET',
@@ -187,7 +207,7 @@
     			  	return false;
      		  });
      		  
-     		  
+     		 /* 여기까지------------------------------------------------------------------ */
      		  
      		  /*취소를 눌렀을때 모달 창 닫기*/
      		 $('.releaseno1').on('click',function(){
@@ -202,18 +222,30 @@
      	  $('.staffrelease').on('click',function(){
      		  var self = this;
      		  console.log("staffrelease click")
+     		 var staffPostion =$(this).parent().next().text();
+     		  var staffDay =$(this).parent().nextAll('.staffDay').text();
+     		 var name = $(this).text();
      		 var pno = $(this).next().val();
      		 $('.modal-body:first').html('');	
-     		  $('.modal-body').prepend("</br><p> 이 스텝을 정말로 명단에서 제외 시키시겠습니까?</p>"+
-     				  "<input type='hidden' name='pno' value='"+pno+"' placeholder='"+pno+"'>"
-     				  +
-     				  "<div class='btn btn-primary releaseok2'>예</div>"+
-     				  "<div class='btn btn-warning releaseno2'>아니오</div>");
+     		  $('.modal-body').prepend("</br><p class='text-center lead'> 이 스텝을 정말로 명단에서 제외 시키시겠습니까?</p></br>"+
+     				  "<input type='hidden' name='pno' id='pno' value='"+pno+"' placeholder='"+pno+"'>"+
+     				  "<p class='text-center'>스텝 이름 : " +name+" </p>"+
+     				  "<p class='text-center'>스텝 직책 : " +staffPostion+" </p>"+
+     				  "<p class='text-center'>계약 만료 : " +staffDay+" </p></br>"+
+     				  
+     				 '<div class="btn-group btn-group-justified" role="group">'+
+					  '<div class="btn-group" role="group">'+
+					    '<button type="button" class="btn btn-danger releaseok2">명단에서 제외</button>'+
+					  '</div>'+
+					  '<div class="btn-group" role="group">'+
+					    '<button type="button" class="btn btn-warning releaseno2">취소</button>'+
+					  '</div>'+
+					'</div>');
      		  
      		  /*예 버튼을 눌렀을때*/
      		  $('.releaseok2').on('click',function(){
-     			  var pno = $(this).prev().val();
-     			  console.log(pno);
+     			  var pno = $('#pno').val();
+     			  console.log("스텝 방출 pno : " + pno);
      			  $('#example-modal').modal('hide');
      			  
      			  /*예 버튼을 눌렀을때 서버와 통신 이후 모달창 닫기*/
