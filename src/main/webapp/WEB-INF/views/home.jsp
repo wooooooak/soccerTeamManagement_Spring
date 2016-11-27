@@ -125,7 +125,7 @@ hgroup{
 		</div>
 
 		<div class="footer-copyright">
-			<div class="text-center"><span> 너무 어렵다ㅠㅠ</span>
+			<div class="text-center"><span>문성우 문태경 이용준 정창현 이영선</span>
 				</div>
 		</div>
 	</footer>

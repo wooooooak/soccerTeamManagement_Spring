@@ -1,8 +1,7 @@
   body {
-  padding-top:70px;
+  padding-top:80px;
   background-color: #ECECEC;
   color: #444444;
-  padding: 0;
   margin: 0;
   perspective: 1px;
   transform-style: preserve-3d;
@@ -22,7 +21,8 @@
   padding: 0;
 }
 .parallax.p1 {
-  background: url('img/football-1350784_1920.jpg') no-repeat fixed 50% 0;
+/*   background: url('img/football-1350784_1920.jpg') no-repeat fixed 50% 0; */
+  background: url('img/wish.jpg') no-repeat fixed 50% 0;
   background-size: cover;
   color: #fff;
 }

@@ -56,7 +56,7 @@
      		 var backno= $(this).next().next().next().next().next().next().next().val();
      		 console.log("선수의 idno : "+idno+"선수의 gola : " + goal);
      		 $('.modal-body:first').html('');	
-     		  $('.modal-body').prepend("</br><p class='text-center lead'> <u>" +name + "</u> 선수의 정보를 수정하려면 </br>데이터를 입력하세요.</p></br>"+
+     		  $('.modal-body').prepend("</br><p class='text-center lead'> <u>" + name + "</u> 선수의 정보를 수정하려면 </br>데이터를 입력하세요.</p></br>"+
      				  "<input type='hidden' name='idno' id='idno' value='"+idno+"' placeholder='"+idno+"'>"
      				  +
      				 '<form id="registrationForm" class="form-horizontal fv-form fv-form-bootstrap"'+

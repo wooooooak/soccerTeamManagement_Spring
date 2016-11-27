@@ -14,7 +14,7 @@
 									class="icon-bar"></span> <span class="icon-bar"></span> <span
 									class="icon-bar"></span>
 							</button>
-							<a class="navbar-brand" href="home"><img alt="logo"
+							<a class="navbar-brand" href="/web"><img alt="logo"
 								src="resources/img/logo.jpg"></a>
 						</div>
 						<div
