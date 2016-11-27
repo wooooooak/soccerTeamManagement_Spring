@@ -1,7 +1,5 @@
 package com.datastr.web;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.Locale;
 
 import javax.inject.Inject;

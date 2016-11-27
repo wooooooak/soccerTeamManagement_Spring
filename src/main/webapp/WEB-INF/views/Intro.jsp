@@ -15,17 +15,23 @@
 
 		<a class="box" href="home">
 			<h2>REGIST</h2>
-			<p>Lorem Ipsum is simply dummy text</p>
+			<p>Player regist</p>
+			<p>Staff regist</p>
+			<p>Wish Palyer regist</p>
 		</a>
 
 		<a class="box" href="listView">
 			<h2>LISTS</h2>
-			<p>Lorem Ipsum is simply dummy text</p>
+			<p>Club Finance</p>
+			<p>Player list</p>
+			<p>Staff list</p>
+			<p>Item list</p>
 		</a>
 
 		<a class="box" href="market">
-			<h2>WHISH LIST</h2>
-			<p>Lorem Ipsum is simply dummy text</p>
+			<h2>WISH LIST</h2>
+			<p>want to join us</p>
+			<p>want to release</p>
 		</a>
 	</div>
 </body>

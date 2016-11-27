@@ -1,7 +1,3 @@
-/*
-    auther : Ahmed Abo Elrayat;
-    images source : https://unsplash.com;
-*/
 
 @import 'https://fonts.googleapis.com/css?family=Raleway';
 * {
@@ -58,7 +54,7 @@ a{
 
 .box:first-of-type {
   background: linear-gradient(to top, rgba(41, 128, 185, 1), rgba(41, 128, 185, 0.7)),
-              url('img/reginrto.jpg') no-repeat center;
+              url('img/jose.jpg') no-repeat center;
   background-size: cover;
 }
 

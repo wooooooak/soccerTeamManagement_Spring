@@ -122,15 +122,7 @@
 						'</div>');
      				  
      				  
-     				  
-     			/*	  "<div class='btn btn-danger releaseok1'>방출</div>"+
-     				 "<div class='btn btn-primary gomarket1'>이적시장에 등록</div>"+
-     				 "<div class='btn btn-info update1'>수정</div>"+
-     				  "<div class='btn btn-warning releaseno1'>취소</div>");
-     		  */
-     		  
-     		  
-     		  /*여기서 부터------------------------------------------------------------------ */
+
      		  
      		  /*  방출 버튼을 눌렀을때 수행되는 자바스크립트 코드 
      		   * 선수목록에서 제외됨
@@ -151,14 +143,15 @@
 					success : function(result) {
 
 						if (result == 'success') {
-							$(self).closest('tr').html(""); // 테이블에서 사라짐
+							$(self).closest('tr').html("");
+							alert("방출되었습니다.")// 테이블에서 사라짐
 						}
 					}
 				});
      			  return false;
      		  });
      		  
-     		  /* 여기까지------------------------------------------------------------------ */
+
 
      		  $('.update1').on('click',function(){
      			 var data=$('#registrationForm').serialize();
@@ -277,10 +270,7 @@
      * 테이블 정렬
      * $('.order').on('click',function(){
      * 이렇게만 했을경우 클릭의 횟수가 2의 제곱만큼 계속 늘어나서 과부하가일어났음.
-     * 
      * .off()를 추가해서 해결
-     * 
-     * 
      * */
     $('.order').off('click').on('click',function(){
     	var order=$(this).next().val();

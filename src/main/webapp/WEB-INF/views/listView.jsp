@@ -35,7 +35,6 @@
 }
 
 .modal-content {
-	/* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
 	width: inherit;
 	height: inherit;
 	/* To center horizontally */
@@ -58,19 +57,6 @@ hgroup {
 
 
 
-/*   form의 자리 잡아줌 
- .container2 {
- width: 90%;
-  padding-top: 30px;
-  border: 1px solid lightgray;
-  border-radius: 5px;
-  box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.2);
-  margin-top: 20px;
-  margin-bottom: 20px;
-  vertical-align: middle;
-  
-} 
-
 /* Blank lines for ease and view */
 /* */
 </style>
@@ -80,9 +66,6 @@ hgroup {
 
 		<%@include file="import/navbar.jsp"%>
 		<%@include file="import/modal.jsp"%>
-
-
-	
 
 	
 	<div class="parallax p1" id="section-1">

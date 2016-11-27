@@ -21,13 +21,12 @@
   padding: 0;
 }
 .parallax.p1 {
-/*   background: url('img/football-1350784_1920.jpg') no-repeat fixed 50% 0; */
   background: url('img/wish.jpg') no-repeat fixed 50% 0;
   background-size: cover;
   color: #fff;
 }
 .parallax.p2 {
-   background: url('img/contract.jpg') no-repeat fixed 50% 0; 
+   background: url('img/contract.jpg') no-repeat fixed 60% 0; 
   background-size: cover;
   color: #fff;
 }

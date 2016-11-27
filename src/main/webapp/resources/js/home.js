@@ -6,7 +6,7 @@
     		'background-position' : '50% ' + (-scrollPos/4)+"px"
     	});
       $('.p2').css({
-    		'background-position' : '60% ' + (-scrollPos/15)+"px"
+    		'background-position' : '60% ' + (-scrollPos/60)+"px"
     	});
       $('.p3').css({
     		'background-position' : '70% ' + (-scrollPos/30)+"px"
@@ -116,44 +116,4 @@
     	}); 
     	return false;
     });
-/*    $('form:eq(1)').on('submit',function(){
-    	var data=$('form:eq(1)').serialize();
-    	alert(data);
-    	$.ajax({
-    		type : 'delete',
-    		url : '/web/data/fprelease',
-    		data: data,
-    		dataType : 'json',
-    		headers : {
-    			"Content-Type" : "application/x-www-form-urlencoded;charset=UTF-8",
-    			"X-HTTP-Method-Override" : "DELETE"
-    		},
-    		success : function(result) {
-    			
-    			if (result == 'success') {
-    				alert("good");
-    			}
-    		}
-    	}); 
-    	return false;
-    });
-*/  
-    
-    	/* $.ajax({
-			type : 'GET',
-			url : '/web/data/depart1',
-			headers : {
-				"Content-Type" : "application/json",
-				"X-HTTP-Method-Override" : "GET"
-			},
-			success : function(result) {
-
-				if (result == 'SUCCESS') {
-					getLikeCnt(self,mmno);
-					
-				}
-			}
-		}); 
-    });*/
-	
 	

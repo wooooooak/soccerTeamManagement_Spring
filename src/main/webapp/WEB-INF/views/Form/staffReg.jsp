@@ -10,7 +10,7 @@
 					class="form-horizontal fv-form fv-form-bootstrap"
 					novalidate="novalidate" method="post" action="#">
 					<div class="form-group">
-				        <label class="col-xs-3 control-label">이름</label>
+				        <label class="col-xs-3 control-label">name</label>
 					        <div class="col-xs-3">
 					            <input type="text" class="form-control" name="name" value="empty" placeholder="player name"/>
 					        </div>
@@ -18,14 +18,14 @@
 					
 
 					  <div class="form-group">
-					    <label class="col-xs-3 control-label"for="exampleInputAmount">주급 </label>
+					    <label class="col-xs-3 control-label"for="exampleInputAmount">salary </label>
 					    <div class="input-group col-xs-5">
 					      	<input type="number" class="form-control" value="0"name="salary"id="exampleInputAmount" placeholder="Amount">
 					      	<div class="input-group-addon">$</div>
 					    </div>
 					  </div>
 					  <div class="form-group">
-					    <label class="col-xs-3 control-label">전화번호 </label>
+					    <label class="col-xs-3 control-label">tel </label>
 					    <div class="input-group col-xs-5">
 					      	<input type="text" class="form-control" value="0"name="tel"id="" placeholder="tel">
 					    </div>
@@ -87,7 +87,7 @@
 					<div class="form-group">
 						
 						
-						<label class="col-xs-3 control-label">포지션</label>
+						<label class="col-xs-3 control-label">position</label>
 						<div class="col-xs-6">
 							<div class="checkbox-inline">
 								<label> <input type="checkbox" name="position" value="director" />
@@ -121,7 +121,7 @@
 					<div class="form-group">
 						<div class="col-xs-9 col-xs-offset-3">
 							<button type="submit" class="btn btn-primary" id="player_submit"name="player_submit"
-								value="submit">저장</button>
+								value="submit">등록</button>
 						</div>
 					</div>
 				</form>

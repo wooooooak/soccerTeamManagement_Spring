@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <div class="">
-	<h2 class="text-center">위시리스트</h2>
+	<h2 class="text-center">WISH PLAYER</h2>
 <div class="container2">
 	</br>
 		<div class="row">
@@ -15,18 +15,18 @@
 					        <div class="col-xs-3">
 					            <input type="text" class="form-control" name="name" value="empty" placeholder="player name"/>
 					        </div>
-						<label class="col-xs-3 control-label">소속 구단</label>
+						<label class="col-xs-3 control-label">club</label>
 						<div class="col-xs-3">
 							<input type="text" class="form-control" name="curclub" value='empty' placeholder="club"/>
 						</div>
 				    </div>
 				    
 					 <div class="form-group">
-				        <label class="col-xs-3 control-label">국적</label>
+				        <label class="col-xs-3 control-label">country</label>
 					        <div class="col-xs-3">
 					            <input type="text" class="form-control" name="country" value="korea" placeholder="country"/>
 					        </div>
-						<label class="col-xs-3 control-label">언어</label>
+						<label class="col-xs-3 control-label">language</label>
 						<div class="col-xs-3">
 							<input type="text" class="form-control" name="language" value='english' placeholder="language"/>
 						</div>
@@ -83,7 +83,7 @@
 					</div>
 					
 					<div class="form-group">
-						<label class="col-xs-3 control-label">사용하는 발</label>
+						<label class="col-xs-3 control-label">side-foot</label>
 						<div class="col-xs-6">
 							<div class="radio-inline">
 								<label> <input type="radio" name="side_footer" value="right" checked />
@@ -107,7 +107,7 @@
 					<div class="form-group">
 						
 						
-						<label class="col-xs-3 control-label">포지션</label>
+						<label class="col-xs-3 control-label">postition</label>
 						<div class="col-xs-6">
 							<div class="checkbox-inline">
 								<label> <input type="checkbox" name="position" value="MF" />
