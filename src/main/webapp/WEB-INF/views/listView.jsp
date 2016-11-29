@@ -216,33 +216,62 @@
 			</hgroup>
 		</div>
 
-		<footer>
-			<div class="row container" id="section-4">
-				<div class="col-md-4">
-					<h1>First Section Col3</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-						Vestibulum interdum tortor ac dui malesuada, id molestie elit
-						aliquam. Fusce laoreet nisl id tellus molestie mattis. Fusce vitae
-						ante quis augue imperdiet rutrum a vitae purus. Etiam tincidunt
-						enim id turpis varius, in condimentum elit.</p>
+	<section>
+			<div class="table-size">
+				<h1>ITEM</h1>
+				<div class="tbl-header">
+					<!-- 	<h4 class="text-primary ">기본 table 코드  </h4> -->
+					<table cellpadding="0" cellspacing="0" border="0">
+						<thead>
+							<tr>
+								<th></th>
+								<th class="order3">이름</th>
+								<input type="hidden" name="name" value="name" />
+								<th class="order3">수량</th>
+								<input type="hidden" name="count" value="count" />
+								<th class="order3">가격</th>
+								<input type="hidden" name="price" value="price" />
+								<th class="order3">제공 업체</th>
+								<input type="hidden" name=company value="company" />
+							</tr>
+						</thead>
+					</table>
+	
+				
+
 				</div>
-				<div class="col-md-4">
-					<h1>First Section Col3</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-						Morbi ac nibh dolor. Cras rutrum molestie ligula posuere
-						hendrerit. Donec luctus vitae elit in gravida. Duis in viverra
-						nunc. Nunc et metus blandit, blandit quam in, laoreet mi. In vitae
-						mauris sit amet tellus dictum rhoncus malesuada non arcu. Ut lacus
-						lacus, dignissim at commodo id, dapibus sed felis. Cras in nunc id
-						est lobortis euismod. Sed egestas nulla et augue sagittis lacinia.
-						Quisque finibus bibendum risus, vitae accumsan ante mollis ac.
-						Aliquam fermentum, mauris eu gravida dictum, tortor risus finibus
-						nibh, in tincidunt velit tortor vehicula mi.</p>
+				<div class="tbl-content">
+					<table cellpadding="0" cellspacing="0" border="0">
+						<tbody>
+							<c:forEach items="${itemList}" var="itemVO"	
+								varStatus="status">
+								<tr>
+									<td>${status.count}</td>
+									<td>${itemVO.name }
+<%-- 									<td><a href="#" class="" data-toggle="modal"
+										data-target="#example-modal" id="example-modal--label">${itemVO.name }</a> --%>
+										<input type="hidden" name="count" value="${itemVO.count}" />
+										<input type="hidden" name="price" value="${itemVO.price}" />
+										<input type="hidden" name="company" value="${itemVO.company}" />
+									</td>
+
+									<td>${itemVO.count }</td>
+									<td>${itemVO.price }</td>
+									<td>${itemVO.company }</td>
+								</tr>
+
+							</c:forEach>
+							<!-- model에 객체를 여러개 넣어서 해도 정상 작동함 -->
+						</tbody>
+					</table>
 				</div>
 			</div>
+			</br> </br> </br> </br> </br>
+		</section>
 
+<footer>
 			<%@include file="import/Inside-footer.jsp"%>
-		</footer>
+</footer>
 	</div>
 
 
@@ -252,6 +281,5 @@
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="resources/js/bootstrap.min.js"></script>
 	<script src="resources/js/listView.js"></script>
-	<script src="resources/js/finance.js"></script>
 </body>
 </html>

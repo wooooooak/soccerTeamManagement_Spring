@@ -5,7 +5,7 @@
 <%@ page session="false"%>
 
 <!------------------- 모달 창 부분 ---------------->
-					<div class="modal fade" role="dialog"
+<!-- 					<div class="modal fade" role="dialog"
 						aria-labelledby="example-modal--label" aria-hidden="true"
 						id="example-modal" tabindex="-1">
 						<div class="vertical-alignment-helper">
@@ -25,7 +25,7 @@
 							</div>
 						</div>
 					</div>
-					<!-- .modal -->
+					.modal -->
 
 
 <table cellpadding="0" cellspacing="0" border="0">

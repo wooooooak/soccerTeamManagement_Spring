@@ -81,30 +81,7 @@
 	</div>
 
 	<footer>
-		<div class="row container" id="section-4">
-			<div class="col-md-4">
-			<h1>First Section Col3</h1>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-					Vestibulum interdum tortor ac dui malesuada, id molestie elit
-					aliquam. Fusce laoreet nisl id tellus molestie mattis. Fusce vitae
-					ante quis augue imperdiet rutrum a vitae purus. Etiam tincidunt
-					enim id turpis varius, in condimentum elit.</p>
-			</div>
-			<div class="col-md-4">
-			<h1>First Section Col3</h1>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-				ac nibh dolor. Cras rutrum molestie ligula posuere hendrerit. Donec
-				luctus vitae elit in gravida. Duis in viverra nunc. Nunc et metus
-				blandit, blandit quam in, laoreet mi. In vitae mauris sit amet
-				tellus dictum rhoncus malesuada non arcu. Ut lacus lacus, dignissim
-				at commodo id, dapibus sed felis. Cras in nunc id est lobortis
-				euismod. Sed egestas nulla et augue sagittis lacinia. Quisque
-				finibus bibendum risus, vitae accumsan ante mollis ac. Aliquam
-				fermentum, mauris eu gravida dictum, tortor risus finibus nibh, in
-				tincidunt velit tortor vehicula mi.</p>
-		  </div>
-		</div>
-
+		<%@include file="Form/Item.jsp"%> <!-- 아이템 등록 form -->
 		<%@include file="import/Inside-footer.jsp"%>
 	</footer>
 </div>
@@ -112,7 +89,6 @@
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="resources/js/bootstrap.min.js"></script>
-	<script src="resources/js/home.js">
-	</script>
+	<script src="resources/js/home.js"></script>
 </body>
 </html>

@@ -116,4 +116,24 @@
     	}); 
     	return false;
     });
+    $('form:eq(3)').on('submit',function(){
+    	var data=$('form:eq(3)').serialize();
+    	alert(data);
+    	$.ajax({
+    		type : 'POST',
+    		url : '/web/data/ItemRegist',
+    		contentType :"application/x-www-form-urlencoded;charset=UTF-8",
+    		data: data,
+    		dataType : 'json',
+    		success : function(result) {
+    			
+    			if (result == 'success') {
+    				alert("good");
+    			}
+    		}
+    	}); 
+    	return false;
+    });
+	
+    
 	

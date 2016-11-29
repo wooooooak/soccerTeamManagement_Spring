@@ -5,7 +5,7 @@
 <%@ page session="false"%>
 
 <!------------------- 모달 창 부분 ---------------->
-					<div class="modal fade" role="dialog"
+<!-- 					<div class="modal fade" role="dialog"
 						aria-labelledby="example-modal--label" aria-hidden="true"
 						id="example-modal" tabindex="-1">
 						<div class="vertical-alignment-helper">
@@ -24,34 +24,35 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 					<!-- .modal -->
 
 
 <table cellpadding="0" cellspacing="0" border="0">
-						<tbody>
-							<c:forEach items="${staffList}" var="StaffVO"
-								varStatus="status">
-								<tr>
-									<td>${status.count}</td>
-									<td><a href="#" class="staffrelease" data-toggle="modal"
-										data-target="#example-modal" id="example-modal--label">${StaffVO.name}</a>
-										<input type="hidden" name="idno" value="${StaffVO.pno}" />
-									</td>
+	<tbody>
+		<c:forEach items="${staffList}" var="StaffVO"
+			varStatus="status">
+			<tr>
+				<td>${status.count}</td>
+				<td><a href="#" class="staffrelease" data-toggle="modal"
+					data-target="#example-modal" id="example-modal--label">${StaffVO.name}</a>
+					<input type="hidden" name="idno" value="${StaffVO.pno}" />
+				</td>
 
-									<td>${StaffVO.position }</td>
-									<td>${StaffVO.birth }</td>
-									<td>${StaffVO.tel}</td>
-									<td>${StaffVO.salary }만원</td>
-									<td>${StaffVO.country }</td>
-									<td>${StaffVO.language }</td>
-									<td>${StaffVO.gender }</td>
-									<td>${StaffVO.career }</td>
-									<td><fmt:formatDate var="endtime"
-											value="${StaffVO.contract_end_time}" pattern="yyyy-MM-dd" />${endtime}</td>
-								</tr>
+				<td>${StaffVO.position }</td>
+				<td>${StaffVO.birth }</td>
+				<td>${StaffVO.tel}</td>
+				<td>${StaffVO.salary }만원</td>
+				<td>${StaffVO.country }</td>
+				<td>${StaffVO.language }</td>
+				<td>${StaffVO.gender }</td>
+				<td>${StaffVO.career }</td>
+				<td class='staffDay'><fmt:formatDate var="endtime"
+						value="${StaffVO.contract_end_time}" pattern="yyyy-MM-dd" />${endtime}</td>
+			</tr>
 
-							</c:forEach>
-							<!-- model에 객체를 여러개 넣어서 해도 정상 작동함 -->
-						</tbody>
-					</table>
+		</c:forEach>
+		<!-- model에 객체를 여러개 넣어서 해도 정상 작동함 -->
+	</tbody>
+</table>
+	<script src="resources/js/listView.js">	</script>

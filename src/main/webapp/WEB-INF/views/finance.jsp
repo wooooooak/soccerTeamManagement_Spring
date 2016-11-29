@@ -37,5 +37,4 @@
      </div>
 </div>
 
-<script src="resources/js/finance.js">
 	</script>

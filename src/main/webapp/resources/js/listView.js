@@ -214,11 +214,11 @@
       /*스텝 이름을 눌렀을 경우*/
      	  $('.staffrelease').on('click',function(){
      		  var self = this;
-     		  console.log("staffrelease click")
      		 var staffPostion =$(this).parent().next().text();
      		  var staffDay =$(this).parent().nextAll('.staffDay').text();
      		 var name = $(this).text();
      		 var pno = $(this).next().val();
+     		 console.log("staffrelease click : " + name)
      		 $('.modal-body:first').html('');	
      		  $('.modal-body').prepend("</br><p class='text-center lead'> 이 스텝을 정말로 명단에서 제외 시키시겠습니까?</p></br>"+
      				  "<input type='hidden' name='pno' id='pno' value='"+pno+"' placeholder='"+pno+"'>"+

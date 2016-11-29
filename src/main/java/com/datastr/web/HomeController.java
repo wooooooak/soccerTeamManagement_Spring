@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.datastr.service.FinanceService;
 import com.datastr.service.FplayerService;
+import com.datastr.service.ItemService;
 import com.datastr.service.MarketService;
 import com.datastr.service.StaffService;
 
@@ -34,6 +35,9 @@ public class HomeController {
 	
 	@Inject
 	FinanceService financeService;
+	
+	@Inject	
+	ItemService itemService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
@@ -62,6 +66,7 @@ public class HomeController {
 			model.addAttribute("fplayerList", FpService.listAll());
 			model.addAttribute("staffList", staffService.listAll());
 			model.addAttribute("finance", financeService.getList());
+			model.addAttribute("itemList", itemService.listAll());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -18,11 +18,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.datastr.VO.FplayerVO;
+import com.datastr.VO.ItemVO;
 import com.datastr.VO.MarketVO;
 import com.datastr.VO.StaffVO;
 import com.datastr.VO.UpdatePlayerVO;
 import com.datastr.service.FinanceService;
 import com.datastr.service.FplayerService;
+import com.datastr.service.ItemService;
 import com.datastr.service.MarketService;
 import com.datastr.service.StaffService;
 
@@ -43,6 +45,8 @@ public class DataController {
 	@Inject
 	FinanceService financeService;
 	
+	@Inject
+	ItemService ItemService;
 
 	@RequestMapping(value = "/listAll", method = RequestMethod.GET)
 	public ResponseEntity<List<FplayerVO>> register(Model model) throws Exception {
@@ -114,6 +118,23 @@ public class DataController {
 		
 		return entity;
 	}
+	@RequestMapping(value = "/ItemRegist", method = RequestMethod.POST,produces = "application/text; charset=utf8")
+	public @ResponseBody ResponseEntity<String> ItemRegist(ItemVO itemVO) throws Exception {
+		logger.info("ItemRegist do");
+		logger.info(itemVO.toString());
+		ResponseEntity<String> entity = null;
+		try {
+			ItemService.regist(itemVO);
+			entity =new ResponseEntity<String>("success",HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+			entity =new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
+		}
+		
+		return entity;
+	}
+	
+	
 	
 /*	wishList에 등록
 	이적시장에 등록 버튼을 눌렀을떄 호출되는 서버 코드
