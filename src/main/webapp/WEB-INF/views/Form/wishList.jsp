@@ -105,8 +105,6 @@
 
 
 					<div class="form-group">
-						
-						
 						<label class="col-xs-3 control-label">postition</label>
 						<div class="col-xs-6">
 							<div class="checkbox-inline">

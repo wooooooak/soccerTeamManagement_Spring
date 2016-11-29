@@ -8,13 +8,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css"
 	href='resources/css/bootstrap.min.css' />
+			
+<%@include file="import/font.jsp"%>
 
 <link href=<c:url value='/resources/ListView.css'/> rel="stylesheet">
 <link href=<c:url value='/resources/table.css'/> rel="stylesheet">
+<link href=<c:url value='/resources/scrollbar.css'/> rel="stylesheet">
 <link href=<c:url value='/resources/nav.css'/> rel="stylesheet">
 <link href=<c:url value='/resources/financeBox.css'/> rel="stylesheet">
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,300'
-	rel='stylesheet' type='text/css'>
 
 
 <html>
@@ -22,43 +23,7 @@
 <title>F.C.D</title>
 
 <style>
-.vertical-alignment-helper {
-	display: table;
-	height: 100%;
-	width: 100%;
-}
 
-.vertical-align-center {
-	/* To center vertically */
-	display: table-cell;
-	vertical-align: middle;
-}
-
-.modal-content {
-	width: inherit;
-	height: inherit;
-	/* To center horizontally */
-	margin: 0 auto;
-}
-
-hgroup {
-	display: inline-block;
-	text-align: center;
-	position: relative;
-	top: 50%;
-	left: 50%;
-	transform: translateX(-50%) translateY(-50%);
-	color: #fff;
-	border: 5px solid #fff;
-	padding: .5em 3em;
-	background-color: rgba(0, 0, 0, .2);
-	z-index: 2;
-}
-
-
-
-/* Blank lines for ease and view */
-/* */
 </style>
 </head>
 <body>
@@ -81,7 +46,7 @@ hgroup {
 		<!-- ------------------------------------ -->
 		<div class="parallax p2" id="section-2">
 			<hgroup>
-				<h1>우리 선수 리스트.</h1>
+				<h1>선수 리스트.</h1>
 				<p>선수 이름을 클릭하세요</p>
 			</hgroup>
 		</div>
@@ -276,11 +241,7 @@ hgroup {
 				</div>
 			</div>
 
-			<div class="footer-copyright">
-				<div class="text-center">
-					<span> 너무 어렵다ㅠㅠ</span>
-				</div>
-			</div>
+			<%@include file="import/Inside-footer.jsp"%>
 		</footer>
 	</div>
 

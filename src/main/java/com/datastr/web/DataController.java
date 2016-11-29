@@ -204,6 +204,8 @@ public class DataController {
 	}
 	
 	
+	/*------------------선수 방출(데이터 삭제)-------------------*/
+	
 	@RequestMapping(value = "/marketDelete/{idno}",method = RequestMethod.DELETE)
 	public ResponseEntity<String> marketDelete(@PathVariable("idno") Integer idno) throws Exception {
 		System.out.println("marketDlete");

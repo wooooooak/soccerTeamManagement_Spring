@@ -8,34 +8,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css"
 	href='resources/css/bootstrap.min.css' />
+
+
+<%@include file="import/font.jsp"%>
+
 <link href=<c:url value='/resources/home.css'/> rel="stylesheet">
 <link href=<c:url value='/resources/nav.css'/> rel="stylesheet">
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,300'
-	rel='stylesheet' type='text/css'>
-
-
+<link href=<c:url value='/resources/scrollbar.css'/> rel="stylesheet">
 
 <html>
 <head>
 <title>F.C.D</title>
 
 <style>
-
-
-hgroup{
-  display: inline-block;
-  text-align: center;
-  position: relative;
-  top: 45%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  color: #fff;
-  border: 5px solid #fff;
-  padding: .5em 3em;
-  background-color: rgba(0,0,0,.2);
-  z-index: 2;
-}
-
 
  /* form의 자리 잡아줌 */
  .container2 {
@@ -51,10 +36,6 @@ hgroup{
   margin-bottom: 20px;
   vertical-align: middle;
 }
-
-
-/* Blank lines for ease and view */
-/* */
 </style>
 </head>
 <body>
@@ -70,7 +51,7 @@ hgroup{
 		</hgroup>
 	</div>
 	
-	<%@include file="Form/wishList.jsp"%>
+	<%@include file="Form/wishList.jsp"%> <!-- 위시리스트 등록 form -->
 	
 	<!-- ------------------------------------ -->
 	<div class="parallax p2" id="section-2">
@@ -121,13 +102,10 @@ hgroup{
 				finibus bibendum risus, vitae accumsan ante mollis ac. Aliquam
 				fermentum, mauris eu gravida dictum, tortor risus finibus nibh, in
 				tincidunt velit tortor vehicula mi.</p>
-		</div>
+		  </div>
 		</div>
 
-		<div class="footer-copyright">
-			<div class="text-center"><span>문성우 문태경 이용준 정창현 이영선</span>
-				</div>
-		</div>
+		<%@include file="import/Inside-footer.jsp"%>
 	</footer>
 </div>
 

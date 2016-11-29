@@ -71,6 +71,12 @@ hgroup{
   background-color: rgba(0,0,0,.2);
   z-index: 2;
 }
+
+hgroup h1{
+	font-size :33px;
+  	font-family: 'Hanna', serif;
+}
+
 .row {
   width: 80%;
   padding-left: 10%;

@@ -11,11 +11,11 @@
 	-moz-transition: width 1s;
         transition: width 1s;
 }
-.box.home      { background-color: #2d89ef; }
-.box.about     { background-color: #00a300; }
-.box.portfolio { background-color: #e3a21a; }
-.box.services  { background-color: #9f00a7; }
-.box.contact   { background-color: #ee1111; }
+.box.finance      { background-color: #2d89ef; }
+.box.tranfer_fee     { background-color: #00a300; }
+.box.salary { background-color: #e3a21a; }
+.box.using-fee  { background-color: #9f00a7; }
+.box.using-sal   { background-color: #ee1111; }
 
 .box a
 {
@@ -50,10 +50,11 @@
     -moz-transition: top 1s;
     transition: top 1s;
 }
+.box h1{
+	font-family: 'Jeju Gothic', serif;
+}
 
 .nav:hover .box { width:10%; }
-
 .nav .box:hover { width: 60%; }
-
 .box:hover span{ top:10%; }
 .box:hover p{ top:5%; }
