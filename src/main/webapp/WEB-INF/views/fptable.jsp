@@ -4,29 +4,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
 
-<!------------------- 모달 창 부분 ---------------->
-<!-- 					<div class="modal fade" role="dialog"
-						aria-labelledby="example-modal--label" aria-hidden="true"
-						id="example-modal" tabindex="-1">
-						<div class="vertical-alignment-helper">
-							<div class="modal-dialog vertical-align-center modal-sm">
-								<div class="modal-content">
-									<header class="modal-header">
-										<button type="button" class="close" data-dismiss="modal">
-											<span aria-hidden="true">×</span> <span class="sr-only">Close
-												Modal</span>
-										</button>
-										<h4 class="modal-title" id="mySmallModalLabel">hello</h4>
-									</header>
-									<div class="modal-body">
-									
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					.modal -->
-
 
 <table cellpadding="0" cellspacing="0" border="0">
             <tbody>
@@ -37,6 +14,13 @@
                   <td><a href="#" class="fprelease" data-toggle="modal"
                     data-target="#example-modal" id="example-modal--label">${fplayerVO.name }</a>
                     <input type="hidden" name="idno" value="${fplayerVO.idno}" />
+           			<input type="hidden" name="salary" value="${fplayerVO.salary}" />
+					<input type="hidden" name="goal" value="${fplayerVO.goal}" />
+					<input type="hidden" name="assist" value="${fplayerVO.assist}" />
+					<input type="hidden" name="position" value="${fplayerVO.position}" />
+					<input type="hidden" name="grade" value="${fplayerVO.grade}" />
+					<input type="hidden" name="backno" value="${fplayerVO.backno}" />
+					<input type="hidden" name="contract_end_time" value="${fplayerVO.contract_end_time}" />
                   </td>
 
                   <td>${fplayerVO.backno }</td>
@@ -47,7 +31,7 @@
                   <td>${fplayerVO.transfer_fee }만원</td>
                   <td>${fplayerVO.salary }만원</td>
                   <td>${fplayerVO.side_footer }</td>
-                  <td><fmt:formatDate var="endtime"
+                  <td class="pDay"><fmt:formatDate var="endtime"
                       value="${fplayerVO.contract_end_time}" pattern="yyyy-MM-dd" />${endtime}</td>
                 </tr>
 
