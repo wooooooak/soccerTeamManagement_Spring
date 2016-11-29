@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.datastr.DAO.StaffDAO;
 import com.datastr.VO.StaffVO;
+import com.datastr.VO.UpdateStaffVO;
 
 @Service
 public class StaffServiceImpl implements StaffService {
@@ -39,6 +40,12 @@ public class StaffServiceImpl implements StaffService {
 	@Override
 	public StaffVO getone(Integer idno) throws Exception {
 		return dao.getone(idno);
+	}
+
+	@Override
+	public void updateStaff(UpdateStaffVO updateStaffVO) throws Exception {
+		dao.updateStaff(updateStaffVO);
+		
 	}
 
 	

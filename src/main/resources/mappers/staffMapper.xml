@@ -19,7 +19,7 @@ values (#{name},#{birth},#{tel},#{country},#{language},#{position},
 	</select>
 
  <select id="getone" resultType="StaffVO">
-	select * from Staff_tbl where pno=#{idno}
+	select * from staff_tbl where pno=#{idno}
 	</select>
 
 
@@ -32,6 +32,13 @@ values (#{name},#{birth},#{tel},#{country},#{language},#{position},
   <delete id="release">
 	delete from staff_tbl where pno=#{pno}
 	</delete>
+  
+  	<update id="updateStaff">
+	update staff_tbl set salary=#{salary}, position=#{position},tel=#{tel},
+	career=#{career},contract_end_time=#{contract_end_time}
+	where pno = #{pno}
+	</update>	
+  
   
   
     </mapper>

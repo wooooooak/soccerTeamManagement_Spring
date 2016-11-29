@@ -83,6 +83,15 @@ public class HomeController {
 			e.printStackTrace();
 		}
 	}
+	@RequestMapping(value = "/finance", method = RequestMethod.GET)
+	public void finance(Locale locale, Model model) {
+		
+		try {
+			model.addAttribute("finance", financeService.getList());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 		/*선수테이블 정렬시 수행되는 서버 코드 
 		 * db에서 받아온 값들을 model에 넣어서 jsp에 뿌려줌

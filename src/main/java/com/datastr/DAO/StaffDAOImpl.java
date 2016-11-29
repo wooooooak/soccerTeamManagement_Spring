@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.datastr.VO.StaffVO;
+import com.datastr.VO.UpdateStaffVO;
 
 @Repository
 public class StaffDAOImpl implements StaffDAO {
@@ -44,7 +45,14 @@ public class StaffDAOImpl implements StaffDAO {
 
 	@Override
 	public StaffVO getone(Integer idno) throws Exception {
+		System.out.println("스텝 리스트 getone메소드  idno : " + idno);
 		return session.selectOne(namespace+".getone", idno);
+	}
+
+
+	@Override
+	public void updateStaff(UpdateStaffVO updateStaffVO) throws Exception {
+		session.update(namespace+".updateStaff", updateStaffVO);
 	}
 
 

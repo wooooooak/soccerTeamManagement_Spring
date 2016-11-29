@@ -19,7 +19,8 @@
     		'opacity': 1-(scrollPos/230)
     	});
     }
-    $(document).ready(function(){
+
+ 	$(document).ready(function(){
     	$(window).scroll(function() {
     		EasyPeasyParallax();
     	});
@@ -54,6 +55,7 @@
      		 var position = $(this).next().next().next().next().next().val();
      		 var grade = $(this).next().next().next().next().next().next().val();
      		 var backno= $(this).next().next().next().next().next().next().next().val();
+     		 var pDay =$(this).parent().nextAll('.pDay').text();
      		 console.log("선수의 idno : "+idno+"선수의 gola : " + goal);
      		 $('.modal-body:first').html('');	
      		  $('.modal-body').prepend("</br><p class='text-center lead'> <u>" + name + "</u> 선수의 정보를 수정하려면 </br>데이터를 입력하세요.</p></br>"+
@@ -101,7 +103,7 @@
 		  				"<div class='form-group'>"+
 							"<label class='col-xs-3 control-label'>계약 기간</label>"+
 							"<div class='col-xs-5'>"
-								+"<input id='day' type='date' class='form-control' name='contract_end_time' />"
+								+"<input id='day' type='date' value = '"+pDay+"'class='form-control' name='contract_end_time' />"
 							+"</div>"+
 						"</div></br>"+
      				  "</form>"+
@@ -117,7 +119,7 @@
 						    '<button type="button" class="btn btn-info update1">수정</button>'+
 						  '</div>'+
 						  '<div class="btn-group" role="group">'+
-						  '<button type="button" class="btn btn-warning releaseno1">취소</button>'+
+						  	'<button type="button" class="btn btn-warning releaseno1">취소</button>'+
 						  '</div>'+
 						'</div>');
      				  
@@ -145,13 +147,13 @@
 						if (result == 'success') {
 							$(self).closest('tr').html("");
 							alert("방출되었습니다.")// 테이블에서 사라짐
+							financejsp();
 						}
 					}
 				});
      			  return false;
      		  });
      		  
-
 
      		  $('.update1').on('click',function(){
      			 var data=$('#registrationForm').serialize();
@@ -171,6 +173,7 @@
      					  if (result == 'success') {
      						  alert("수정 완료");
      						 $('#fptable').load('/web/listAllOrderBy/name');
+     						financejsp();
      						  
      					  }
      				  }
@@ -214,21 +217,61 @@
       /*스텝 이름을 눌렀을 경우*/
      	  $('.staffrelease').on('click',function(){
      		  var self = this;
-     		 var staffPostion =$(this).parent().next().text();
+     		  var name = $(this).text();
+     		  var pno = $(this).next().val();
+     		  var salary = $(this).next().next().val();
+     		  var tel = $(this).next().next().next().val();
+     		  var career = $(this).next().next().next().next().val();
+     		 var position =$(this).parent().next().text();
      		  var staffDay =$(this).parent().nextAll('.staffDay').text();
-     		 var name = $(this).text();
-     		 var pno = $(this).next().val();
      		 console.log("staffrelease click : " + name)
      		 $('.modal-body:first').html('');	
-     		  $('.modal-body').prepend("</br><p class='text-center lead'> 이 스텝을 정말로 명단에서 제외 시키시겠습니까?</p></br>"+
+     		  $('.modal-body').prepend("</br><p class='text-center lead'> <u>" + name + "</u> 의 정보를 수정하려면 </br>데이터를 입력하세요.</p></br>"+
      				  "<input type='hidden' name='pno' id='pno' value='"+pno+"' placeholder='"+pno+"'>"+
-     				  "<p class='text-center'>스텝 이름 : " +name+" </p>"+
-     				  "<p class='text-center'>스텝 직책 : " +staffPostion+" </p>"+
-     				  "<p class='text-center'>계약 만료 : " +staffDay+" </p></br>"+
+     				 '<form id="staffUpdate" class="form-horizontal fv-form fv-form-bootstrap"'+
+						'novalidate="novalidate" method="post" action="#">'+
+						"<input type='hidden' name='pno' id='pno2' value='"+pno+"' placeholder='"+pno+"'>"+
+			  				"<div class='form-group'>"+
+			  				  '<label class="col-xs-3 control-label">salary</label>'+
+			  				  "<div class='col-xs-3'><input id='sal2'class='form-control' type='number' value='"+salary+"' name='salary' placeholder='salary'/>"+
+			  				  "</div>"+
+			  				"</div>"+
+		  			
+			  				'<div class="form-group"> '+
+								'<label class="col-xs-3  control-label">position</label>'+
+								'<div class="col-xs-5">'+
+									'<input type="text" class="form-control" id="position2"value="'+position+'" name="position" placeholder="경기당 골"/>'+
+								'</div>'+
+							"</div>"+
+							
+							'<div class="form-group"> '+
+								'<label class="col-xs-3  control-label">tel</label>'+
+								'<div class="col-xs-5">'+
+									'<input type="text" class="form-control" id="tel2" value="'+tel+'" name="tel" placeholder="tel"/>'+
+								'</div>'+
+							"</div>"+
+							'<div class="form-group"> '+
+							'<label class="col-xs-3  control-label">career</label>'+
+							'<div class="col-xs-5">'+
+							'<input type="text" class="form-control" id="career2" value="'+career+'" name="career" placeholder="career"/>'+
+							'</div>'+
+							"</div>"+
+							
+		  				
+			  				"<div class='form-group'>"+
+								"<label class='col-xs-3 control-label'>계약 기간</label>"+
+								"<div class='col-xs-5'>"
+									+"<input id='day' type='date2' value='"+ staffDay+"'class='form-control' name='contract_end_time' />"
+								+"</div>"+
+							"</div></br>"+
+  				  "</form>"+
      				  
      				 '<div class="btn-group btn-group-justified" role="group">'+
 					  '<div class="btn-group" role="group">'+
 					    '<button type="button" class="btn btn-danger releaseok2">명단에서 제외</button>'+
+					  '</div>'+
+					  '<div class="btn-group" role="group">'+
+					  	'<button type="button" class="btn btn-info update2">수정</button>'+
 					  '</div>'+
 					  '<div class="btn-group" role="group">'+
 					    '<button type="button" class="btn btn-warning releaseno2">취소</button>'+
@@ -252,11 +295,36 @@
 
 						if (result == 'success') {
 							$(self).closest('tr').html("");
+							financejsp();
 						}
 					}
 				});
      			  return false;
      		  });
+     		  
+     		  $('.update2').on('click',function(){
+     			 
+    			 var data=$('#staffUpdate').serialize();
+      			  alert(data);
+      			$('#example-modal').modal('hide');
+      			  $.ajax({
+      				  type : 'POST',
+      				  url : '/web/data/updateStaff',
+      				  data: data,
+      				  headers : {
+      					  "Content-Type" : "application/x-www-form-urlencoded;charset=UTF-8"
+      				  },
+      				  success : function(result) {
+      					  
+      					  if (result == 'success') {
+      						  alert("스텝 수정 완료");
+      						$('#stafftable').load('/web/staffListAllOrderBy/name');
+      						financejsp();
+      					  }
+      				  }
+      			  });
+     			  return false;
+      		  });
      		  
      		  /*아니오를 눌렀을때 모달 창 닫기*/
      		 $('.releaseno2').on('click',function(){
@@ -289,3 +357,9 @@
     	$('#stafftable').load('/web/staffListAllOrderBy/'+order);
     	return false;
     });
+    
+    
+    function financejsp(){
+    	$('#financeView').load('/web/finance');
+    }
+    

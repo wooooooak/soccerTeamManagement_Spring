@@ -22,6 +22,7 @@ import com.datastr.VO.ItemVO;
 import com.datastr.VO.MarketVO;
 import com.datastr.VO.StaffVO;
 import com.datastr.VO.UpdatePlayerVO;
+import com.datastr.VO.UpdateStaffVO;
 import com.datastr.service.FinanceService;
 import com.datastr.service.FplayerService;
 import com.datastr.service.ItemService;
@@ -198,7 +199,7 @@ public class DataController {
 	}
 	
 	
-	/*선수 데이터 수정*/
+	/*------------------------------- 데이터 수정-----------------------*/
 	@RequestMapping(value = "/updatePlayer",method = RequestMethod.POST)
 	public @ResponseBody ResponseEntity<String> updatePlayer(UpdatePlayerVO UpdatePlayerVO) throws Exception {
 		System.out.println("updatePlayer");
@@ -214,6 +215,31 @@ public class DataController {
 			
 			financeService.update_player_Salary(UpdatePlayerVO.getSalary() - fplayerVO2.getSalary());
 			fpservice.updatePlayer(UpdatePlayerVO);
+			entity =new ResponseEntity<String>("success",HttpStatus.OK);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			entity =new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
+		}
+		
+		return entity;
+	}
+	@RequestMapping(value = "/updateStaff",method = RequestMethod.POST)
+	public @ResponseBody ResponseEntity<String> updateStaff(UpdateStaffVO updateStaffVO) throws Exception {
+		System.out.println("updateStaffVO 실행");
+		logger.info(updateStaffVO.toString());
+		logger.info("바뀔 주급 : "+updateStaffVO.getSalary());
+		
+		int pno = updateStaffVO.getPno();
+		StaffVO staffVO2;
+		ResponseEntity<String> entity = null;
+		try {
+			staffVO2 = staffService.getone(pno);
+			logger.info("기존 주급 : "+staffVO2.getSalary());
+			logger.info("재정 변화 : "+staffVO2.getSalary()+"-"+"updateStaffVO.getSalary()");
+			
+			financeService.update_staff_Salary(updateStaffVO.getSalary() - staffVO2.getSalary());
+			staffService.updateStaff(updateStaffVO);
 			entity =new ResponseEntity<String>("success",HttpStatus.OK);
 			
 		} catch (Exception e) {
@@ -265,8 +291,6 @@ public class DataController {
 		
 		return entity;
 	}
-	
-	
 	
 /*	선수 방출 버튼을 눌렀을때 호출되는 서버 코드
 	재정의 변화도 같이 일어남*/
