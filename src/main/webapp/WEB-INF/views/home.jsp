@@ -75,8 +75,7 @@
 
 	<div class="parallax p4" id="section-4">
 		<hgroup>
-			<h1>Well</h1>
-			<h2>This is some bold info!</h2>
+			<h1>비품 등록</h1>
 		</hgroup>
 	</div>
 
