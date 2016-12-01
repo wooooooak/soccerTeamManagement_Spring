@@ -13,5 +13,9 @@ values (#{name},#{company},#{price},#{count})
 	<select id='listAll' resultType="ItemVO">
 	select * from item_tbl order by price
 	</select>
+	
+	<update id='update' >
+	update item_tbl set count = #{count} where idno = #{idno}
+	</update>
   
 </mapper>

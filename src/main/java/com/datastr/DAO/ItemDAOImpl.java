@@ -30,4 +30,10 @@ public class ItemDAOImpl implements ItemDAO {
 		return session.selectList(namespace+".listAll");
 	}
 
+
+	@Override
+	public void update(ItemVO itemVO) throws Exception {
+		session.update(namespace+".update", itemVO);
+	}
+
 }

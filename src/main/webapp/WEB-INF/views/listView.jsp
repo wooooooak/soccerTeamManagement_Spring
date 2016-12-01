@@ -83,9 +83,6 @@
 							</tr>
 						</thead>
 					</table>
-	
-				
-
 				</div>
 				<div class="tbl-content" id="fptable">
 					<%@include file="fptable.jsp"%>
@@ -145,10 +142,6 @@
 			</br> </br> </br> </br> </br>
 		</section>
 
-		<!-- -------------------------------------------------------- -->
-
-		<!-- ------------------------------------ -->
-
 		<div class="parallax p4" id="section-4">
 			<hgroup>
 				<h1>아이템</h1>
@@ -168,7 +161,7 @@
 								<input type="hidden" name="name" value="name" />
 								<th class="order3">수량</th>
 								<input type="hidden" name="count" value="count" />
-								<th class="order3">가격</th>
+								<th class="order3">가격(원)</th>
 								<input type="hidden" name="price" value="price" />
 								<th class="order3">제공 업체</th>
 								<input type="hidden" name=company value="company" />
@@ -179,30 +172,8 @@
 				
 
 				</div>
-				<div class="tbl-content">
-					<table cellpadding="0" cellspacing="0" border="0">
-						<tbody>
-							<c:forEach items="${itemList}" var="itemVO"	
-								varStatus="status">
-								<tr>
-									<td>${status.count}</td>
-									<td>${itemVO.name }
-<%-- 									<td><a href="#" class="" data-toggle="modal"
-										data-target="#example-modal" id="example-modal--label">${itemVO.name }</a> --%>
-										<input type="hidden" name="count" value="${itemVO.count}" />
-										<input type="hidden" name="price" value="${itemVO.price}" />
-										<input type="hidden" name="company" value="${itemVO.company}" />
-									</td>
-
-									<td>${itemVO.count }</td>
-									<td>${itemVO.price }</td>
-									<td>${itemVO.company }</td>
-								</tr>
-
-							</c:forEach>
-							<!-- model에 객체를 여러개 넣어서 해도 정상 작동함 -->
-						</tbody>
-					</table>
+				<div class="tbl-content" id="itemTable">
+					<%@include file="itemTable.jsp"%>
 				</div>
 			</div>
 			</br> </br> </br> </br> </br>

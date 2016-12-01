@@ -23,7 +23,7 @@
 					    <label class="col-xs-3 control-label"for="exampleInputAmount">price </label>
 					    <div class="input-group col-xs-5">
 					      	<input type="number" class="form-control" value="0"name="price"id="exampleInputAmount" placeholder="Amount">
-					      	<div class="input-group-addon">$</div>
+					      	<div class="input-group-addon">만원</div>
 					    </div>
 					  </div>
 					  

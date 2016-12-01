@@ -249,6 +249,26 @@ public class DataController {
 		
 		return entity;
 	}
+	@RequestMapping(value = "/updateItem/{idno}/{count}",method = RequestMethod.POST)
+	public @ResponseBody ResponseEntity<String> updateItem(@PathVariable("idno") Integer idno,@PathVariable("count") Integer count) 
+																				throws Exception {
+		System.out.println("updateItem 실행");
+		ItemVO itemVO;
+		ResponseEntity<String> entity = null;
+		try {
+			itemVO = new ItemVO();
+			itemVO.setIdno(idno);
+			itemVO.setCount(count);
+			ItemService.update(itemVO);
+			entity =new ResponseEntity<String>("success",HttpStatus.OK);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			entity =new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
+		}
+		
+		return entity;
+	}
 	
 	
 	/*------------------선수 방출(데이터 삭제)-------------------*/
@@ -284,6 +304,7 @@ public class DataController {
 			financeService.update_staff_Salary(salary);
 			staffService.release(pno);
 			entity =new ResponseEntity<String>("success",HttpStatus.OK);
+			System.out.println(entity.toString());
 		} catch (Exception e) {
 			e.printStackTrace();
 			entity =new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);

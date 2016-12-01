@@ -24,4 +24,9 @@ public class ItemServiceImpl implements ItemService {
 	public List<ItemVO> listAll() throws Exception {
 		return dao.listAll();
 	}
+
+	@Override
+	public void update(ItemVO itemVO) throws Exception {
+		dao.update(itemVO);
+	}
 }

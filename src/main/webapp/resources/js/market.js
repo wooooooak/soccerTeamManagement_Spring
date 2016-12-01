@@ -6,7 +6,7 @@
 	    });
     
     
-    //이적시장에서 우리팀이 내보낸 선수는 disabled 처리
+    //이적시장에서 우리팀이 내보낸 선수는 css : disabled 처리
     $(function(){
     	$('.whodisabled').each(function(){
     		if($(this).children(".curclub").text()=="our"){
@@ -71,7 +71,6 @@
   			  var day = $('#day').val();
   			  var salary = $('#mksal').val();
   			  var fee=$("#fee").val();
-  			  alert("day : "+day+" idno : " + idno+" salary : "+salary+" fee : " + fee);
   			  $('#example-modal').modal('hide');
   			  
   			  /*예 버튼을 눌렀을때 서버와 통신 이후 모달창 닫기
@@ -89,24 +88,25 @@
 							$.ajax({
 						  		type : 'DELETE',
 								url : '/web/data/marketDelete/' + idno,
+								dataType : 'text',
 								headers : {
 									"Content-Type" : "application/x-www-form-urlencoded;charset=UTF-8"
-								},
-								success : function(result){
-									console.log("market delete success");
 								}
-						  		
-						  	});// AJAX 끝
-							$(self).closest('tr').html("");
+						  	}).done(function(result){
+						  		$(self).closest('tr').html("");
+						  		alert("등록 성공");
+					    	})
 						}
 					}
-				});
+				}).fail(function( jqXHR, textStatus ) {
+		    		  alert("데이터를 빠짐없이 입력해주세요.");
+		    	}) ;
   		  });
   		  
   		  /*희망목록에서만 삭제 (우리선수에 영입되진 않음)*/
   		  $('.delete1').on('click',function(){
   			var idno = $('#idno').val(); // .gomarket의 이전이전 요소 의 값 = hidden 속성의 idno
- 			  alert("idno : " + idno);
+ 			  console.log("idno : " + idno);
  			  $('#example-modal').modal('hide');
  			  	$.ajax({
  			  		type : 'DELETE',
@@ -118,7 +118,6 @@
  						$(self).closest('tr').html("");
  						console.log("market delete success");
  					}
- 			  		
  			  	}); //ajax end
  			  	return false;
   		  });

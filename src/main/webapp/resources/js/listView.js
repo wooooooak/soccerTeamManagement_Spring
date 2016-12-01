@@ -20,15 +20,20 @@
     	});
     }
 
- 	$(document).ready(function(){
+/* 	$(document).ready(function(){
     	$(window).scroll(function() {
     		EasyPeasyParallax();
     	});
-    });
+    });*/
+    
+ 	$(function(){
+ 		$(window).scroll(function() {
+    		EasyPeasyParallax();
+    	});
+ 	});
     
     
-    
-    $(window).on("load resize ", function() {
+/*    $(window).on("load resize ", function() {
     	  var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
     	  $('.tbl-header').css({'padding-right':scrollWidth});
     	}).resize();
@@ -40,7 +45,7 @@
     });
        $('c:forEach').on('click',function(){
     	   alret("Dd");
-       });
+       });*/
        
        
        /*선수 제거시 모달창 제어*/
@@ -122,9 +127,6 @@
 						  	'<button type="button" class="btn btn-warning releaseno1">취소</button>'+
 						  '</div>'+
 						'</div>');
-     				  
-     				  
-
      		  
      		  /*  방출 버튼을 눌렀을때 수행되는 자바스크립트 코드 
      		   * 선수목록에서 제외됨
@@ -332,8 +334,59 @@
      		 });
      		 
        });
-       
-    
+     	  
+     	  
+     	 $('.itemClick').on('click',function(){
+     		 var name =$(this).text();
+     		 var idno =$(this).next().val();
+     		 var count =$(this).next().next().val();
+     		$('.modal-body:first').html('');
+     		 $('.modal-body').prepend("</br><p class='text-center lead'> <u>" + name + "</u> 아이템을 삭제하시겠습니까?</p></br>"+
+    				 '<form id="itemUpdate" class="form-horizontal fv-form fv-form-bootstrap"'+
+						'novalidate="novalidate" method="post" action="#">'+
+						"<input type='hidden' name='idno' id='idno2' value='"+idno+"' placeholder='"+idno+"'>"+
+			  				'<div class="form-group"> '+
+								'<label class="col-xs-3  control-label">수량</label>'+
+								'<div class="col-xs-5">'+
+									'<input type="number" class="form-control" id="count"value="'+count+'" name="count" placeholder="count"/>'+
+								'</div>'+
+							"</div></br>"+
+							"</form>"+
+    				 '<div class="btn-group btn-group-justified" role="group">'+
+					  '<div class="btn-group" role="group">'+
+					  	'<button type="button" class="btn btn-info update3">수정</button>'+
+					  '</div>'+
+					  '<div class="btn-group" role="group">'+
+					    ' <button type="button" class="btn btn-warning cancle">취소</button>'+
+					  '</div>'+
+					'</div>');
+     		 
+     		 // 아이템 수량 수정
+     		 $('.update3').on('click',function(){
+     			 var idno = $('#idno2').val();
+     			 var count = $('#count').val();
+     			 
+     			 $.ajax({
+ 					type : 'POST',
+ 					url : '/web/data/updateItem/' + idno+"/"+count,
+ 					headers : {
+ 						"Content-Type" : "application/x-www-form-urlencoded;charset=UTF-8"
+ 					}
+     			 }).done(function(){
+     				$('#example-modal').modal('hide');
+     				$('#itemTable').load('/web/itemTable'); // 수정이후 테이블 새로고침
+     			 }).fail(function( jqXHR, textStatus ){
+     				 alert(textStatus);
+     			 });
+     		 });
+     		 
+     		 
+     		$('.cancle').on('click',function(){
+    			 $('#example-modal').modal('hide');
+    		 });
+     		
+     	 });
+     	  
     /*
      * 테이블 정렬
      * $('.order').on('click',function(){
