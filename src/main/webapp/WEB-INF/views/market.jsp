@@ -21,23 +21,18 @@
 
 <html>
 <head>
-<title>자료구조 제목</title>
-
-<style>
-
-
-/* Blank lines for ease and view */
-/* */
-</style>
+<title>F.C.D</title>
+	<style>
+	
+	/* Blank lines for ease and view */
+	/* */
+	</style>
 </head>
 <body>
 <div class="container-fluid">
 
 	<%@include file="import/navbar.jsp"%>
-	
 	<%@include file="import/modal.jsp"%>
-	
-	
 	
 	<!-- ------------------------------------ -->
 <table class="container" >

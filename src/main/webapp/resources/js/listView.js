@@ -19,12 +19,6 @@
     		'opacity': 1-(scrollPos/230)
     	});
     }
-
-/* 	$(document).ready(function(){
-    	$(window).scroll(function() {
-    		EasyPeasyParallax();
-    	});
-    });*/
     
  	$(function(){
  		$(window).scroll(function() {
@@ -37,15 +31,7 @@
     	  var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
     	  $('.tbl-header').css({'padding-right':scrollWidth});
     	}).resize();
-    
-       $('.p4>hgroup').on('click',function(){
-    	$.getJSON("data/listAll",function(data){
-    		console.log(data);
-    	});
     });
-       $('c:forEach').on('click',function(){
-    	   alret("Dd");
-       });*/
        
        
        /*선수 제거시 모달창 제어*/
@@ -159,7 +145,7 @@
 
      		  $('.update1').on('click',function(){
      			 var data=$('#registrationForm').serialize();
-     			  alert(data);
+     			  console.log(data);
      			  $('#example-modal').modal('hide');
      			  
      			  /*예 버튼을 눌렀을때 서버와 통신 이후 모달창 닫기*/
@@ -189,7 +175,7 @@
      		  /*이적시장등록을 눌렀을때 방출은 되지않지만 이적시장에 올라감*/
      		  $('.gomarket1').on('click',function(){
      			 var idno = $('#idno').val();
-    			  alert("이적시장에 등록한 선수 idno : " +idno);
+    			  console.log("이적시장에 등록한 선수 idno : " +idno);
     			  $('#example-modal').modal('hide');
     			  	$.ajax({
     			  		type : 'GET',
@@ -396,7 +382,10 @@
     $('.order').off('click').on('click',function(){
     	var order=$(this).next().val();
     	console.log("playerList order by : " + order);	
-    	 /*load때문에 한번씩 더 클릭할때마다 클릭이 2배 늘어난 것으로 처리된다.*/
+    	$('.order').each(function(){
+    		$(this).removeClass('onClk');
+    	});
+    	$(this).addClass('onClk');
     	$('#fptable').load('/web/listAllOrderBy/'+order);
     	return false;
     });
@@ -406,6 +395,13 @@
     
     $('.order2').off('click').on('click',function(){
     	var order=$(this).next().val();
+    	
+    	/*칼럼을 누를때마다 누른 이름에 효과*/
+    	$('.order2').each(function(){
+    		$(this).removeClass('onClk');
+    	});
+    	$(this).addClass('onClk');
+    	
     	console.log("staffList order by : " + order);	
     	$('#stafftable').load('/web/staffListAllOrderBy/'+order);
     	return false;

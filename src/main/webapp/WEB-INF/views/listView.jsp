@@ -76,6 +76,8 @@
 								<input type="hidden" name="transfer_fee" value="transfer_fee" />
 								<th class="order">주급</th>
 								<input type="hidden" name="salary" value="salary" />
+								<th class="order">평점</th>
+								<input type="hidden" name="grade" value="grade" />
 								<th class="order">주로 쓰는 발</th>
 								<input type="hidden" name="side_footer" value="side_footer" />
 								<th class="order">계약 만료일</th>

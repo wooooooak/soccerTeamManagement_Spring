@@ -1,6 +1,13 @@
 	    $('.order2').off('click').on('click',function(){
 	    	var order=$(this).next().val();
 	    	console.log("market order2 order by : " + order);	
+	    	
+	    	/*칼럼을 누를때마다 누른 이름에 효과*/
+	    	$('.order2').each(function(){
+	    		$(this).removeClass('onClk');
+	    	});
+	    	$(this).addClass('onClk');
+	    	
 	    	$('#marketTable').load('/web/marketOrderBy/'+order);
 	    	return false;
 	    });

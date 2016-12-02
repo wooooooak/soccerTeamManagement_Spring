@@ -30,6 +30,7 @@
                   <td>${fplayerVO.position}</td>
                   <td>${fplayerVO.transfer_fee }만원</td>
                   <td>${fplayerVO.salary }만원</td>
+                  <td>${fplayerVO.grade }</td>
                   <td>${fplayerVO.side_footer }</td>
                   <td class="pDay"><fmt:formatDate var="endtime"
                       value="${fplayerVO.contract_end_time}" pattern="yyyy-MM-dd" />${endtime}</td>
