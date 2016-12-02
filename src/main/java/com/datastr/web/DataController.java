@@ -95,7 +95,7 @@ public class DataController {
 		ResponseEntity<String> entity = null;
 		try {
 			staffService.regist(staffVO);
-			financeService.update_staff_Salary(salary);
+			financeService.update_staff_Salary(salary/4);
 			entity =new ResponseEntity<String>("success",HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -236,9 +236,9 @@ public class DataController {
 		try {
 			staffVO2 = staffService.getone(pno);
 			logger.info("기존 주급 : "+staffVO2.getSalary());
-			logger.info("재정 변화 : "+staffVO2.getSalary()+"-"+"updateStaffVO.getSalary()");
+			logger.info("재정 변화 (주급은 나누기 4) : "+staffVO2.getSalary()+"-"+updateStaffVO.getSalary());
 			
-			financeService.update_staff_Salary(updateStaffVO.getSalary() - staffVO2.getSalary());
+			financeService.update_staff_Salary((updateStaffVO.getSalary() - staffVO2.getSalary())/4);
 			staffService.updateStaff(updateStaffVO);
 			entity =new ResponseEntity<String>("success",HttpStatus.OK);
 			
@@ -301,7 +301,7 @@ public class DataController {
 			
 			StaffVO staffVO = staffService.getone(pno);
 			salary -= staffVO.getSalary();
-			financeService.update_staff_Salary(salary);
+			financeService.update_staff_Salary(salary/4);
 			staffService.release(pno);
 			entity =new ResponseEntity<String>("success",HttpStatus.OK);
 			System.out.println(entity.toString());
